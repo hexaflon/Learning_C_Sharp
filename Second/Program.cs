@@ -171,7 +171,130 @@
 
         static void ep_10() //String methods
         {
+            string fullname = "Bro Code";
+            string phonenumber = "123-456-7890";
 
+            fullname = fullname.ToUpper();
+            Console.WriteLine(fullname);
+
+            phonenumber = phonenumber.Replace("-", "/");
+            Console.WriteLine(phonenumber);
+
+            String username = fullname.Insert(0, "@");
+            Console.WriteLine(username);
+
+
+            Console.WriteLine(fullname.Length);
+
+            string firstname = fullname.Substring(0, 3);
+            Console.WriteLine(firstname);
+
+            string lastname = fullname.Substring(4, 4);
+            Console.WriteLine(lastname);
+
+
+
+        }
+
+        static void ep_11() //if statements
+        {
+            Console.WriteLine("Enter your age: ");
+            int age = Convert.ToInt32(Console.ReadLine());
+            if (age > 100) Console.WriteLine("Too old");
+            else if (age >= 18) Console.WriteLine("Signed up!");
+            else if (age < 0) Console.WriteLine("Wrong age");
+            else Console.WriteLine("You are too young");
+
+            Console.WriteLine("Enter your name: ");
+            String name =Console.ReadLine();
+
+            if (name == "") Console.WriteLine("You did not enter your name");
+            else Console.WriteLine("Hello " + name);
+
+        }
+
+        static void ep_12() //switches
+        {
+            Console.WriteLine("What day is it? ");
+            String day = Console.ReadLine();
+
+            switch (day)
+            {
+                case "Monday":
+                    {
+                        Console.WriteLine($"It's {day}");
+                        break;
+                    }
+                case "Tuesday":
+                    {
+                        Console.WriteLine($"It's {day}");
+                        break;
+                    }
+                case "Wednesday":
+                    {
+                        Console.WriteLine($"It's {day}");
+                        break;
+                    }
+                case "Thursday":
+                    {
+                        Console.WriteLine($"It's {day}");
+                        break;
+                    }
+                case "Friday":
+                    {
+                        Console.WriteLine($"It's {day}");
+                        break;
+                    }
+                case "Saturday":
+                    {
+                       Console.WriteLine($"It's {day}");
+                        break;
+                    }
+                case "Sunday":
+                    {
+                       Console.WriteLine($"It's {day}");
+                        break;
+                    }
+                default:
+                    {
+                        Console.WriteLine("That's not a day");
+                        break;
+                    }
+            }
+        }
+
+        static void ep_13() //logical operators
+        {
+            Console.WriteLine("What's the temperature ");
+            double temperature = Convert.ToDouble(Console.ReadLine());
+
+            if (temperature >= 10 && temperature <= 25) Console.WriteLine("It's ok outside");
+            else if (temperature > 25) Console.WriteLine("It's too hot outside");
+            else Console.WriteLine("It's too cold outside");
+
+            if (temperature <= -50 || temperature >= 50) Console.WriteLine("Don't do it to yourself");
+
+        }
+
+        static void ep_14() //while loops
+        {
+            Console.WriteLine("Enter your name: ");
+            String name = Console.ReadLine();
+
+            while(name == "")
+            {
+                Console.WriteLine("Enter your name: ");
+                name = Console.ReadLine();
+            }
+
+        }
+
+        static void ep_15() //for loops
+        {
+            for(int i = 1; i <= 10; i++)
+            {
+                Console.WriteLine(i * i);
+            }
         }
 
         static void show_ep1_5(){
@@ -228,17 +351,54 @@
             Console.Clear();
             //---------------------------------------------------------------------------------------------------------------
             ep_10(); //String methods
-            Console.WriteLine("\n\n9th part is over. To continues press any button...");
+            Console.WriteLine("\n\n10th part is over. To continues press any button...");
             Console.ReadKey();
             Console.Clear();
             //---------------------------------------------------------------------------------------------------------------
         }
+
+        static void show_ep11_15()
+        {
+            //---------------------------------------------------------------------------------------------------------------
+            ep_11(); //If statements
+            Console.WriteLine("\n\n11th part is over. To continues press any button...");
+            Console.ReadKey();
+            Console.Clear();
+            //---------------------------------------------------------------------------------------------------------------
+            ep_12(); //Switches
+            Console.WriteLine("\n\n12th part is over. To continues press any button...");
+            Console.ReadKey();
+            Console.Clear();
+            //---------------------------------------------------------------------------------------------------------------
+            ep_13(); //logical operators
+            Console.WriteLine("\n\n13th part is over. To continues press any button...");
+            Console.ReadKey();
+            Console.Clear();
+            //---------------------------------------------------------------------------------------------------------------
+            ep_14(); //while loops
+            Console.WriteLine("\n\n14th part is over. To continues press any button...");
+            Console.ReadKey();
+            Console.Clear();
+            //---------------------------------------------------------------------------------------------------------------
+            ep_15(); //for loops
+            Console.WriteLine("\n\n15th part is over. To continues press any button...");
+            Console.ReadKey();
+            Console.Clear();
+            //---------------------------------------------------------------------------------------------------------------
+        }
+
         static void Main(string[] args)
         {
             //show_ep1_5();
-            show_ep6_10();
-            //testing git
+            //show_ep6_10();
+            //show_ep11_15();
+            ep_15();
 
+
+
+            //testing git
+            //string x = "yeop";
+            //Console.WriteLine($"To jest {x}");
         }
     }
 }
