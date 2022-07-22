@@ -1,8 +1,8 @@
 ﻿namespace Second
 {
-    internal class Program 
+    internal class Program
     {
-        static void first_ep()
+        static void ep_1() //very basics
         {
             int a = 2;
             Console.WriteLine(a);
@@ -13,10 +13,10 @@
              *comment
              */
             Console.WriteLine("\tBros");
-            
+
         }
 
-        static void second_ep()
+        static void ep_2() //variables
         {
             int x; // declaration
             x = 50; // init
@@ -25,7 +25,7 @@
 
             int z = x + y; //declaration with sum
             Console.WriteLine("Your bruh count is: " + z);
-             
+
             double cm = 6.8; //using floating point.
             Console.WriteLine("Sadge only " + cm + " cm");
 
@@ -43,7 +43,7 @@
 
         }
 
-        static void third_ep()
+        static void ep_3() //constants
         {
             const double pi = 3.14159;
 
@@ -56,7 +56,7 @@
 
         }
 
-        static void fourth_ep()
+        static void ep_4() //type casting
         {
             // in short, changing data type of variable of your choice
             // for example you can change Double into Int, the result would be getting rid of everyting after decimal point
@@ -94,39 +94,149 @@
 
         }
 
-        static void fifth_ep()
+        static void ep_5() //user input
+        {
+            Console.WriteLine("What's your name?");
+            string name = Console.ReadLine();
+            Console.WriteLine("Hello " + name);
+
+            Console.WriteLine("What's your age?");
+            int age = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("You are " + age);
+
+        }
+
+        static void ep_6() //Arithmetic operators
+        {
+            int friends = 5;
+            friends++;
+            friends += 3;
+
+            friends--;
+
+            friends *= 2;
+            friends /= 2;
+
+            int remainder = friends % 3;
+
+            Console.WriteLine("Friends: " + remainder);
+        }
+
+        static void ep_7() //Math class
+        {
+            double x = 4;
+            double a = Math.Pow(x, 2); // Power, your number to desired powers
+            Console.WriteLine(a);
+
+            double b = Math.Sqrt(x); // Square root of a number
+            Console.WriteLine(b);
+
+            x *= -1;
+            double c = Math.Abs(x); // Absolute value 
+            Console.WriteLine(c);
+
+            a = 3.14;
+            b = 3.70;
+
+            Console.WriteLine(Math.Ceiling(a)); // Round to highest possible math decimal
+            Console.WriteLine(Math.Floor(b)); // ROund to lowest possible math decimal
+
+        }
+
+        static void ep_8() //Random numbers
+        {
+            Random random = new Random(); 
+            int num = random.Next(1, 7);
+            Console.WriteLine(num);
+
+            double num2 = random.NextDouble();
+            Console.WriteLine(num2);
+
+
+
+        }
+
+        static void ep_9() //Hypotenuse calculator
+        {
+            Console.WriteLine("Enter side A: ");
+            double a = Convert.ToDouble(Console.ReadLine());
+
+            Console.WriteLine("Enter side B: ");
+            double b = Convert.ToDouble(Console.ReadLine());
+
+            double c = Math.Sqrt(a * a + b * b);
+            Console.WriteLine("Hypotenuse is " + c);
+
+        }
+
+        static void ep_10() //String methods
         {
 
         }
-        static void Main(string[] args)
-        {
+
+        static void show_ep1_5(){
             //---------------------------------------------------------------------------------------------------------------
             // calling a functions
-            first_ep(); //very basics
+            ep_1(); //very basics
             Console.WriteLine("\n\n1st part is over. To continues press any button...");
             Console.ReadKey();
             Console.Clear();
             //---------------------------------------------------------------------------------------------------------------
-            second_ep(); //variables
+            ep_2(); //variables
             Console.WriteLine("\n\n2nd part is over. To continues press any button...");
             Console.ReadKey();
             Console.Clear();
             //---------------------------------------------------------------------------------------------------------------
-            third_ep(); //constants
+            ep_3(); //constants
             Console.WriteLine("\n\n3rd part is over. To continues press any button...");
             Console.ReadKey();
             Console.Clear();
             //---------------------------------------------------------------------------------------------------------------
-            fourth_ep(); //type casting
+            ep_4(); //type casting
             Console.WriteLine("\n\n4th part is over. To continues press any button...");
             Console.ReadKey();
             Console.Clear();
             //---------------------------------------------------------------------------------------------------------------
-            fifth_ep(); //user input
-            Console.WriteLine("\n\ntth part is over. To continues press any button...");
+            ep_5(); //user input
+            Console.WriteLine("\n\n5th part is over. To continues press any button...");
             Console.ReadKey();
             Console.Clear();
             //---------------------------------------------------------------------------------------------------------------
+        }
+
+        static void show_ep6_10()
+        {
+            //---------------------------------------------------------------------------------------------------------------
+            ep_6(); //Arithmetic operators
+            Console.WriteLine("\n\n6th part is over. To continues press any button...");
+            Console.ReadKey();
+            Console.Clear();
+            //---------------------------------------------------------------------------------------------------------------
+            ep_7(); //Math class
+            Console.WriteLine("\n\n7th part is over. To continues press any button...");
+            Console.ReadKey();
+            Console.Clear();
+            //---------------------------------------------------------------------------------------------------------------
+            ep_8(); //Random numbers
+            Console.WriteLine("\n\n8th part is over. To continues press any button...");
+            Console.ReadKey();
+            Console.Clear();
+            //---------------------------------------------------------------------------------------------------------------
+            ep_9(); //Hypotenuse calculator
+            Console.WriteLine("\n\n9th part is over. To continues press any button...");
+            Console.ReadKey();
+            Console.Clear();
+            //---------------------------------------------------------------------------------------------------------------
+            ep_10(); //String methods
+            Console.WriteLine("\n\n9th part is over. To continues press any button...");
+            Console.ReadKey();
+            Console.Clear();
+            //---------------------------------------------------------------------------------------------------------------
+        }
+        static void Main(string[] args)
+        {
+            //show_ep1_5();
+            show_ep6_10();
         }
     }
 }
