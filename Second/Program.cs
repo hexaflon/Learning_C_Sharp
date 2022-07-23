@@ -602,6 +602,142 @@
 
         }
 
+        static void ep_30() //classes
+        {
+            Messages mes = new Messages();
+            mes.Hello();
+            mes.Waiting();
+            mes.Call_me();
+        }
+
+        static void ep_31() //objects
+        {
+            Human human1 = new Human();
+            Human human2 = new Human();
+            human1.name = "Rick";
+            human1.age = 65;
+            human2.name = "Morty";
+            human2.age = 16;
+
+            human1.Sleep();
+            human2.Sleep();
+            human1.Eat();
+            human2.Eat();
+        }
+
+        static void ep_32() //constructors
+        {
+            Human human1 = new Human("Rick", 65);
+            Human human2 = new Human("Morty", 16);
+
+            human1.Sleep();
+            human2.Sleep();
+            human1.Eat();
+            human2.Eat();
+
+            Car car1 = new Car("Ford", "Mustang", 2022, "red");
+            car1.Drive();
+
+        }
+
+        static void ep_33() //static
+        {
+            //By declaring something static it belongs to class not to an object, so you can count a number of objects that were created using this class
+            Car car1 = new Car("Mustang");
+            Car car2 = new Car("Corvette");
+
+            Console.WriteLine(Car.numberOfCars);
+
+        }
+
+        static void ep_34() //overloading constructor
+        {
+            Car car1 = new Car("Corvette");
+            Car car2 = new Car("Ford", "Mustang", 2022, "red");
+
+            car1.ShowDetail();
+            car2.ShowDetail();
+        }
+
+        static void ep_35() // inheritance
+        {
+            Car car = new Car("yep");
+            Boat boat = new Boat();
+            Bicycle bicycle = new Bicycle();
+
+            car.go();
+            boat.go();
+            bicycle.go();
+
+        }
+
+        static void ep_36() //abstract classes
+        {
+            //you can't create an object with abstract class adds security
+
+        }
+
+        static void ep_37() // array of objets
+        {
+            Car car1 = new Car("Mustang");
+            Car car2 = new Car("Corvette");
+            Car car3 = new Car("Lambo");
+
+            Car[] garage = new Car[3];
+
+            garage[0] = car1;
+            garage[1] = car2;
+            garage[2] = car3;
+
+            //Car[] garage2 = { new Car("Mustang"), new Car("Corvette"), Car("Lambo") };
+            //you can create an array like above, it's much neater and it takes less steps
+
+            Console.WriteLine(garage[0].model);
+            Console.WriteLine(garage[1].model);
+            Console.WriteLine(garage[2].model);
+
+
+        }
+
+        static void ep_38() // objects as arguments
+        {
+            Car car1 = new Car("Ford", "Mustang", 2022, "red");
+            Console.WriteLine(car1.color);
+            change_color(car1,"blue");
+            Console.WriteLine(car1.color);
+            Car new_car = copy_car(car1);
+
+            Console.WriteLine(new_car.model + " " + new_car.color);
+
+        }
+
+        static void change_color(Car car, string color)//ep38
+        {
+            car.color = color;
+        }
+
+        static Car copy_car(Car car)//ep38
+        {
+            return new Car("", car.model, 0, car.color);
+        }
+
+        static void ep_39() //method override
+        {
+            Dog dog = new Dog();
+            Cat cat = new Cat();
+            dog.Speak();
+            cat.Speak();
+
+
+        }
+
+        static void ep_40() //toString
+        {
+            Car car = new Car("Chevy", "Corvette", 2022, "blue");
+            Console.WriteLine(car.ToString());
+
+        }
+
         static void show_ep1_5(){
             //---------------------------------------------------------------------------------------------------------------
             // calling a functions
@@ -770,8 +906,38 @@
             Console.ReadKey();
             Console.Clear();
             //---------------------------------------------------------------------------------------------------------------
-            //ep_30(); //params keyword
+            ep_30(); //params keyword
             Console.WriteLine("\n\n30th part is over. To continues press any button...");
+            Console.ReadKey();
+            Console.Clear();
+            //---------------------------------------------------------------------------------------------------------------
+        }
+
+        static void show_ep31_35()
+        {
+            //---------------------------------------------------------------------------------------------------------------
+            ep_31(); //objects
+            Console.WriteLine("\n\n31st part is over. To continues press any button...");
+            Console.ReadKey();
+            Console.Clear();
+            //---------------------------------------------------------------------------------------------------------------
+            ep_32(); //constructors
+            Console.WriteLine("\n\n32nd part is over. To continues press any button...");
+            Console.ReadKey();
+            Console.Clear();
+            //---------------------------------------------------------------------------------------------------------------
+            ep_33(); //static
+            Console.WriteLine("\n\n33rd part is over. To continues press any button...");
+            Console.ReadKey();
+            Console.Clear();
+            //---------------------------------------------------------------------------------------------------------------
+            ep_34(); //overloading constructors
+            Console.WriteLine("\n\n34th part is over. To continues press any button...");
+            Console.ReadKey();
+            Console.Clear();
+            //---------------------------------------------------------------------------------------------------------------
+            ep_35(); //inheritance
+            Console.WriteLine("\n\n35th part is over. To continues press any button...");
             Console.ReadKey();
             Console.Clear();
             //---------------------------------------------------------------------------------------------------------------
@@ -783,13 +949,145 @@
             //show_ep6_10();
             //show_ep11_15();
             //show_ep16_21();
-            ep_29();
-
-
+            //show_ep22_25();
+            //show_ep26_30();
+            //show_ep31_35();
+            //show_ep36_40();
+            //show_ep41_45();
+            //show_ep46_50();
+            ep_40();
 
             //testing git
             //string x = "yeop";
             //Console.WriteLine($"To jest {x}");
         }
     }
-}
+    public class Messages //class for ep30
+    {
+        public void Hello()
+        {
+            Console.WriteLine("Hello! Welcome");
+        }
+        public void Waiting()
+        {
+            Console.WriteLine("I am waiting");
+        }
+        void Bye()
+        {
+            Console.WriteLine("Imma head out!");
+        }
+        public void Call_me()
+        {
+            Hello();
+            Waiting();
+            Bye();
+        }
+    }
+
+    public class Human //class for ep 31,32
+    {
+        public String name;
+        public int age;
+
+        public Human(string name, int age)
+        {
+            this.name = name;
+            this.age = age;
+        }
+
+        public Human() { }
+
+        public void Eat()
+        {
+            Console.WriteLine($"{name} ate");
+        }
+        public void Sleep()
+        {
+            Console.WriteLine($"{name} is sleeping");
+        }
+    }
+    abstract class Vehicle //ep35, 36
+    {
+        public int speed = 0;
+        public void go()
+        {
+            Console.WriteLine("This vehicle is moving!");
+        }
+    }
+    class Car : Vehicle //class used in ep 32,33,34,35,37,38, 40
+    {
+        public int wheels = 4;
+        String make;
+        public String model;
+        int year;
+        public String color;
+
+        public static int numberOfCars;
+
+        public Car(string model)//overloaded constructor
+        {
+            this.model = model;
+            numberOfCars++;
+        }
+        public Car(string make, string model, int year, string color)//overloaded constructor
+        {
+            this.make = make;
+            this.model = model;
+            this.year = year;
+            this.color = color;
+            numberOfCars++;
+        }
+
+        public void Drive()
+        {
+            Console.WriteLine($"You drive {model}");
+        }
+
+        public void ShowDetail()
+        {
+            Console.WriteLine($"{make} {model} {year} {color}");
+        }
+
+        public override string ToString() //overrides method ToString to display more human information about the object, not type that is Class which was used to build that object
+        {
+            String message = "This is a " + make + " " + model;
+            return message;
+        }
+
+
+    }
+
+    class Bicycle : Vehicle //ep 35
+    {
+        public int wheels = 2;
+    }
+
+    class Boat : Vehicle //ep35
+    {
+        public int wheels = 0;
+    }
+
+    abstract class Animal //ep 39
+    {
+        public virtual void Speak()
+        {
+            Console.WriteLine("The animal goes *brrr*");
+        }
+    }
+
+    class Dog : Animal //ep 39
+    {
+        public override void Speak()
+        {
+            Console.WriteLine("The dog goes *woof*");
+        }
+    }
+
+    class Cat : Animal //ep 39
+    {
+        public override void Speak()
+        {
+            Console.WriteLine("The cat goes *meow*");
+        }
+    }
+}  
