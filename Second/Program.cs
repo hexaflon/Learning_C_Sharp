@@ -753,6 +753,174 @@
 
         }
 
+        static void ep_42() //interfaces
+        {
+            //interface declares what needs to be implemented
+            //an inheriting class defines how it should do it
+            //security + multiple inheritance
+
+            Rabbit rabbit = new Rabbit();
+            rabbit.Flee();
+
+            Hawk hawk = new Hawk();
+            hawk.Hunt();
+
+            Fish fish = new Fish();
+            fish.Flee();
+            fish.Hunt();
+
+        }
+
+        static void ep_43() //lists
+        {
+            //to use lists you need to import:
+            //using System.Collections.Generic;
+
+            List<String> food = new List<string>();
+            food.Add("pizza");
+            food.Add("hamburger");
+            food.Add("hotdog");
+            food.Add("fries");
+
+            food.Insert(2, "sushi");
+
+            Console.WriteLine(food.Count);
+            Console.WriteLine(food.IndexOf("sushi"));
+
+            food.Reverse();
+
+            foreach(String foodItem in food)
+            {
+                Console.WriteLine(foodItem);
+            }
+
+
+        }
+
+        static void ep_44() //List of objects
+        {
+            List<Player> players = new List<Player>();
+
+            Player player1 = new Player("Chad");
+            Player player2 = new Player("Ichigo");
+            Player player3 = new Player("Inoue");
+
+            players.Add(player1);
+            players.Add(player2);
+            players.Add(player3);
+
+            foreach(Player player in players)
+            {
+                Console.WriteLine(player);
+            }
+
+        }
+
+        static void ep_45() //getters and setters
+        {
+            Car car1 = new Car(30);
+
+            Console.WriteLine(car1.Speed);
+            
+            car1.Speed = 600;
+
+            Console.WriteLine(car1.Speed);
+
+        }
+
+        static void ep_46() //auto implemented properties
+        {
+            Table table = new Table("wood");
+
+            Console.WriteLine(table.Material);
+
+            table.Material = "metal";
+
+            Console.WriteLine(table.Material);
+
+        }
+
+        static void ep_47() //enums
+        {
+            Console.WriteLine(Planets.Mercury + " is planet #" + (int)Planets.Mercury);
+
+            String name = PlanetRadius.Earth.ToString();
+            int radius = (int)PlanetRadius.Earth;
+
+            Console.WriteLine($"planet: {name}");
+            Console.WriteLine($"radius: {radius}km");
+            Console.WriteLine($"volume: {Volume(PlanetRadius.Earth)}km^3");
+
+        }
+
+        static void ep_48() //generics
+        {
+            int[] intArray = { 1, 2, 3 };
+            double[] doubleArray = { 3.0, 2.0, 1.0 };
+            String[] stringArray = { "1", "2", "3" };
+
+            displayElements(intArray);
+            displayElements(doubleArray);
+            displayElements(stringArray);
+
+        }
+        static void displayElements<T>(T[] array)//ep48
+        {
+            //using <T> after methods name you can have function that can work with different data types
+            foreach(T element in array)
+            {
+                Console.WriteLine(element);
+            }
+        }
+
+        static double Volume(PlanetRadius radius) //ep47
+        {
+            double volume = (4.0 / 3.0) * Math.PI * Math.Pow((int)radius, 3);
+            return volume;
+        }
+
+        static void ep_49() //multithreading
+        {
+            /*
+            Thread mainThread = Thread.CurrentThread;
+            mainThread.Name = "Main Thread";
+            Console.WriteLine(mainThread.Name);
+
+            Thread thread1 = new Thread(CountDown);
+            Thread thread2 = new Thread(CountUp);
+            thread1.Start();
+            thread2.Start();
+            CountDown();
+            CountUp();
+            Console.WriteLine($"{mainThread.Name} is complete");
+            */
+
+            Thread thread1 = new Thread(() => CountDown("1st"));
+            Thread thread2 = new Thread(() => CountUp("2st"));
+            thread1.Start();
+            thread2.Start();
+        }
+
+        static void CountDown(String name)//ep49
+        {
+            for(int i = 10; i >= 0; i--)
+            {
+                Console.WriteLine($"Timer {name} : {i} seconds");
+                Thread.Sleep(1000);
+            }
+            Console.WriteLine($"Timer {name} is complete");
+        }
+
+        static void CountUp(String name)//ep49
+        {
+            for (int i = 0; i <= 10; i++)
+            {
+                Console.WriteLine($"Timer {name} : {i} seconds");
+                Thread.Sleep(1000);
+            }
+            Console.WriteLine($"Timer {name} is complete");
+        }
+
         static void show_ep1_5(){
             //---------------------------------------------------------------------------------------------------------------
             // calling a functions
@@ -958,6 +1126,91 @@
             //---------------------------------------------------------------------------------------------------------------
         }
 
+        static void show_ep36_40()
+        {
+            //---------------------------------------------------------------------------------------------------------------
+            ep_36(); //abstract classes
+            Console.WriteLine("\n\n36th part is over. To continues press any button...");
+            Console.ReadKey();
+            Console.Clear();
+            //---------------------------------------------------------------------------------------------------------------
+            ep_37(); //array of objects
+            Console.WriteLine("\n\n37th part is over. To continues press any button...");
+            Console.ReadKey();
+            Console.Clear();
+            //---------------------------------------------------------------------------------------------------------------
+            ep_38(); //objects as arguments
+            Console.WriteLine("\n\n38th part is over. To continues press any button...");
+            Console.ReadKey();
+            Console.Clear();
+            //---------------------------------------------------------------------------------------------------------------
+            ep_39(); //method overriding
+            Console.WriteLine("\n\n30th part is over. To continues press any button...");
+            Console.ReadKey();
+            Console.Clear();
+            //---------------------------------------------------------------------------------------------------------------
+            ep_40(); //ToString method
+            Console.WriteLine("\n\n40th part is over. To continues press any button...");
+            Console.ReadKey();
+            Console.Clear();
+            //---------------------------------------------------------------------------------------------------------------
+        }
+
+        static void show_ep41_45()
+        {
+            //---------------------------------------------------------------------------------------------------------------
+            ep_41(); //polymorphism
+            Console.WriteLine("\n\n41st part is over. To continues press any button...");
+            Console.ReadKey();
+            Console.Clear();
+            //---------------------------------------------------------------------------------------------------------------
+            ep_42(); //interfaces
+            Console.WriteLine("\n\n42nd part is over. To continues press any button...");
+            Console.ReadKey();
+            Console.Clear();
+            //---------------------------------------------------------------------------------------------------------------
+            ep_43(); //lists
+            Console.WriteLine("\n\n43rd part is over. To continues press any button...");
+            Console.ReadKey();
+            Console.Clear();
+            //---------------------------------------------------------------------------------------------------------------
+            ep_44(); //list of objects
+            Console.WriteLine("\n\n44th part is over. To continues press any button...");
+            Console.ReadKey();
+            Console.Clear();
+            //---------------------------------------------------------------------------------------------------------------
+            ep_45(); //getters and setters
+            Console.WriteLine("\n\n45th part is over. To continues press any button...");
+            Console.ReadKey();
+            Console.Clear();
+            //---------------------------------------------------------------------------------------------------------------
+        }
+
+        static void show_ep46_49()
+        {
+            //---------------------------------------------------------------------------------------------------------------
+            ep_46(); //auto implemented properties
+            Console.WriteLine("\n\n46th part is over. To continues press any button...");
+            Console.ReadKey();
+            Console.Clear();
+            //---------------------------------------------------------------------------------------------------------------
+            ep_47(); //enums
+            Console.WriteLine("\n\n47th part is over. To continues press any button...");
+            Console.ReadKey();
+            Console.Clear();
+            //---------------------------------------------------------------------------------------------------------------
+            ep_48(); //generics
+            Console.WriteLine("\n\n48th part is over. To continues press any button...");
+            Console.ReadKey();
+            Console.Clear();
+            //---------------------------------------------------------------------------------------------------------------
+            ep_49(); //multithreading
+            Console.WriteLine("\n\n49th part is over. To continues press any button...");
+            Console.ReadKey();
+            Console.Clear();
+            //---------------------------------------------------------------------------------------------------------------
+        }
+
         static void Main(string[] args)
         {
             //show_ep1_5();
@@ -970,13 +1223,51 @@
             //show_ep36_40();
             //show_ep41_45();
             //show_ep46_50();
-            ep_41();
+            ep_49();
 
             //testing git
             //string x = "yeop";
             //Console.WriteLine($"To jest {x}");
         }
     }
+
+    public class Table
+    {
+        public String Material { get; set; }  //if you don't need additional logic behind getter and setter, that's enought
+                                       //getter will return it's value and setter will change it value
+        public Table(string material)
+        {
+            this.Material = material;
+        }
+
+    }
+
+    enum Planets //like dictionary in python, ep47
+    {
+        Mercury,
+        Venus,
+        Earth,
+        Mars,
+        Jupiter,
+        Saturn,
+        Uranus,
+        Neptune,
+        Pluto
+    }
+
+    enum PlanetRadius //like dictionary in python, ep47
+    {
+        Mercury = 2439,
+        Venus = 6051,
+        Earth = 6371,
+        Mars = 3389,
+        Jupiter = 69911,
+        Saturn = 58232,
+        Uranus = 25362,
+        Neptune = 24622,
+        Pluto = 1188
+    }
+
     public class Messages //class for ep30
     {
         public void Hello()
@@ -1036,8 +1327,10 @@
         public String model;
         int year;
         public String color;
-
+        private int speed; 
         public static int numberOfCars;
+
+        public Car(int speed) => this.Speed = speed;
 
         public Car(string model)//overloaded constructor
         {
@@ -1051,6 +1344,15 @@
             this.year = year;
             this.color = color;
             numberOfCars++;
+        }
+
+        public int Speed
+        {
+            get { return speed; }//read
+            set
+            {//writable
+                if (value > 500) value = 500;
+                speed = value; }
         }
 
         public override void go()
@@ -1120,4 +1422,61 @@
             Console.WriteLine("The cat goes *meow*");
         }
     }
+    
+    interface IPrey
+    {
+        void Flee();
+    }
+
+    interface IPredator
+    {
+        void Hunt();
+    }
+
+    class Rabbit : IPrey
+    {
+        public void Flee()
+        {
+            Console.WriteLine("Rabbit is running away");
+        }
+    }
+
+    class Hawk : IPredator
+    {
+        public void Hunt()
+        {
+            Console.WriteLine("Hawk is hunting");
+        }
+    }
+
+    class Fish :IPredator, IPrey
+    {
+        public void Hunt()
+        {
+            Console.WriteLine("Fish is hunting");
+        }
+
+        public void Flee()
+        {
+            Console.WriteLine("Fish is fleeing");
+        }
+    }
+
+    class Player
+    {
+        public String username;
+
+        public Player(string username)
+        {
+            this.username = username;
+        }
+        public override string ToString()
+        {
+            return username;
+           
+        }
+    }
+
+
+
 }  
