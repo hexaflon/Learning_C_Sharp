@@ -473,6 +473,132 @@
 
         static void ep_22() //methods
         {
+            String name = "Juan";
+            sing_HB(name);
+
+        }
+        static void sing_HB(String name) //method used in ep_22
+        {
+            Console.WriteLine("Happy birthday to you!");
+            Console.WriteLine("Happy birthday to you!");
+            Console.WriteLine($"Happy birthday dear {name}!");
+            Console.WriteLine("Happy birthday to you!");
+
+        }
+
+        static void ep_23() // return keyword
+        {
+            int j = num_in_ep_23();
+            Console.WriteLine($"You passed a {j} into other method");
+        }
+        static int num_in_ep_23() //method used in ep_23
+        {
+            Console.WriteLine("Please type an Integer: ");
+            int yep = Convert.ToInt32(Console.ReadLine());
+            return yep;
+        }
+
+        static void ep_24() //method overload
+        {
+            double total = multiply(2, 4);
+            Console.WriteLine(total);
+            total = multiply(2, 4, 6);
+            Console.WriteLine(total);
+
+        }
+        static double multiply(double a, double b)//method used in ep_24
+        {
+            return a * b;
+        }
+        static double multiply(double a, double b, double c)//method used in ep_24
+        {
+            return a * b * c;
+        }
+
+        static void ep_25() // params keyword
+        {
+            //params are used to pass multiple arguments to a method by passing them into the array
+            double total = checkout(2, 4, 15.5, 39.232);
+            Console.WriteLine(total);
+        }
+
+        static double checkout(params double[] a)
+        {
+            double sum = 0;
+            foreach(double price in a)
+            {
+                sum += price;
+            }
+            return sum;
+        }
+
+        static void ep_26() //exception handling
+        {
+            int a, b, result;
+
+            try
+            {
+                Console.WriteLine("Enter number 1: ");
+                a = Convert.ToInt32(Console.ReadLine());
+
+                Console.WriteLine("Enter number 2: ");
+                b = Convert.ToInt32(Console.ReadLine());
+
+                result = a / b;
+
+                Console.WriteLine(result);
+
+            }
+            catch(FormatException e)
+            {
+                Console.WriteLine("Please type a number!");
+            }
+            catch(DivideByZeroException e)
+            {
+                Console.WriteLine("You can't divide by 0!");
+            }
+            finally //Will always execute no matter if exception occured or no
+            {
+                Console.WriteLine("yep");
+            }
+        }
+
+        static void ep_27() //conditional operator
+        {
+            double temperature = 15;
+            string message;
+
+            message = (temperature >= 20) ? "It's hot" : "It's cold";
+            Console.WriteLine(message);
+
+        }
+
+        static void ep_28() //string interpolation
+        {
+            string name = "Michael";
+            string lastname = "YEP";
+            int age = 23;
+            Console.WriteLine($"Hi, I am {name} {lastname} {age}, years old");
+        }
+
+        static void ep_29() //multidimensional arrays
+        {
+            String[] ford = { "Mustang", "F-150", "Explorer" };
+            String[] chevy = { "Corvette", "Camaro", "Silverado" };
+            String[] toyota = { "Corolla", "Camry", "Rav4" };
+
+
+            String[,] parkinglot = {{ "Mustang", "F-150", "Explorer" },
+                                    { "Corvette", "Camaro", "Silverado" },
+                                    { "Corolla", "Camry", "Rav4" }
+                                   };
+
+            parkinglot[0, 1] = "";
+            foreach(String car in parkinglot)
+            {
+                Console.WriteLine(car);
+            }
+
 
         }
 
@@ -604,18 +730,48 @@
             Console.ReadKey();
             Console.Clear();
             //---------------------------------------------------------------------------------------------------------------
-            //ep_23(); //nested loops
+            ep_23(); //return keyword
             Console.WriteLine("\n\n23rd part is over. To continues press any button...");
             Console.ReadKey();
             Console.Clear();
             //---------------------------------------------------------------------------------------------------------------
-            //ep_24(); //nested loops
+            ep_24(); //method overload
             Console.WriteLine("\n\n24th part is over. To continues press any button...");
             Console.ReadKey();
             Console.Clear();
             //---------------------------------------------------------------------------------------------------------------
-            //ep_25(); //nested loops
+            ep_25(); //params keyword
             Console.WriteLine("\n\n25th part is over. To continues press any button...");
+            Console.ReadKey();
+            Console.Clear();
+            //---------------------------------------------------------------------------------------------------------------
+        }
+
+        static void show_ep26_30()
+        {
+            //---------------------------------------------------------------------------------------------------------------
+            ep_26(); //exception handling
+            Console.WriteLine("\n\n26th part is over. To continues press any button...");
+            Console.ReadKey();
+            Console.Clear();
+            //---------------------------------------------------------------------------------------------------------------
+            ep_27(); //conditional operator
+            Console.WriteLine("\n\n27th part is over. To continues press any button...");
+            Console.ReadKey();
+            Console.Clear();
+            //---------------------------------------------------------------------------------------------------------------
+            ep_28(); //string interpolation
+            Console.WriteLine("\n\n28th part is over. To continues press any button...");
+            Console.ReadKey();
+            Console.Clear();
+            //---------------------------------------------------------------------------------------------------------------
+            ep_29(); //multidimensional arrays
+            Console.WriteLine("\n\n29th part is over. To continues press any button...");
+            Console.ReadKey();
+            Console.Clear();
+            //---------------------------------------------------------------------------------------------------------------
+            //ep_30(); //params keyword
+            Console.WriteLine("\n\n30th part is over. To continues press any button...");
             Console.ReadKey();
             Console.Clear();
             //---------------------------------------------------------------------------------------------------------------
@@ -627,7 +783,7 @@
             //show_ep6_10();
             //show_ep11_15();
             //show_ep16_21();
-            ep_22();
+            ep_29();
 
 
 
