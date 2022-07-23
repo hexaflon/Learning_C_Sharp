@@ -738,6 +738,21 @@
 
         }
 
+        static void ep_41() //polymorphism
+        {
+            Car car = new Car("yep");
+            Bicycle bicycle = new Bicycle();
+            Boat boat = new Boat();
+
+            Vehicle[] vehicles = { car, bicycle, boat };//they have common type that is Vehicle
+
+            foreach(Vehicle vehicle in vehicles)
+            {
+                vehicle.go();
+            }
+
+        }
+
         static void show_ep1_5(){
             //---------------------------------------------------------------------------------------------------------------
             // calling a functions
@@ -955,7 +970,7 @@
             //show_ep36_40();
             //show_ep41_45();
             //show_ep46_50();
-            ep_40();
+            ep_41();
 
             //testing git
             //string x = "yeop";
@@ -1009,7 +1024,7 @@
     abstract class Vehicle //ep35, 36
     {
         public int speed = 0;
-        public void go()
+        public virtual void go()
         {
             Console.WriteLine("This vehicle is moving!");
         }
@@ -1038,6 +1053,11 @@
             numberOfCars++;
         }
 
+        public override void go()
+        {
+            Console.WriteLine("Car is moving");
+        }
+
         public void Drive()
         {
             Console.WriteLine($"You drive {model}");
@@ -1060,11 +1080,21 @@
     class Bicycle : Vehicle //ep 35
     {
         public int wheels = 2;
+
+        public override void go()
+        {
+            Console.WriteLine("Bicycle is moving");
+        }
     }
 
     class Boat : Vehicle //ep35
     {
         public int wheels = 0;
+
+        public override void go()
+        {
+            Console.WriteLine("Boat is moving");
+        }
     }
 
     abstract class Animal //ep 39
