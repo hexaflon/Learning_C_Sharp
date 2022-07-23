@@ -145,7 +145,7 @@
 
         static void ep_8() //Random numbers
         {
-            Random random = new Random(); 
+            Random random = new Random();
             int num = random.Next(1, 7);
             Console.WriteLine(num);
 
@@ -206,7 +206,7 @@
             else Console.WriteLine("You are too young");
 
             Console.WriteLine("Enter your name: ");
-            String name =Console.ReadLine();
+            String name = Console.ReadLine();
 
             if (name == "") Console.WriteLine("You did not enter your name");
             else Console.WriteLine("Hello " + name);
@@ -247,12 +247,12 @@
                     }
                 case "Saturday":
                     {
-                       Console.WriteLine($"It's {day}");
+                        Console.WriteLine($"It's {day}");
                         break;
                     }
                 case "Sunday":
                     {
-                       Console.WriteLine($"It's {day}");
+                        Console.WriteLine($"It's {day}");
                         break;
                     }
                 default:
@@ -281,7 +281,7 @@
             Console.WriteLine("Enter your name: ");
             String name = Console.ReadLine();
 
-            while(name == "")
+            while (name == "")
             {
                 Console.WriteLine("Enter your name: ");
                 name = Console.ReadLine();
@@ -291,10 +291,189 @@
 
         static void ep_15() //for loops
         {
-            for(int i = 1; i <= 10; i++)
+            for (int i = 1; i <= 10; i++)
             {
                 Console.WriteLine(i * i);
             }
+        }
+
+        static void ep_16() //nested loops
+        {
+            Console.WriteLine("How many rows?: ");
+            int rows = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("How many columns?: ");
+            int columns = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("What symbol to build your rectangle: ");
+            string symbol = Console.ReadLine();
+
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < columns; j++)
+                {
+                    Console.Write(symbol);
+                }
+                Console.WriteLine();
+            }
+
+        }
+
+        static void ep_17() //number guessing game
+        {
+            Random random = new Random();
+            int guess = random.Next(1, 101);
+            int number, tries = 0;
+            while (true)
+            {
+                Console.WriteLine("Guess a number between 1 and 100");
+                number = Convert.ToInt32(Console.ReadLine());
+                tries++;
+                if (guess == number) break;
+                if (number > guess) Console.WriteLine("You guessed too high! ");
+                if (number < guess) Console.WriteLine("You guessed too low! ");
+
+            }
+            Console.WriteLine("Congrats, you won!");
+            Console.WriteLine($"It took you: {tries} tries"); //String formating using $ symbol before "", similiar to fstrings in python
+        }
+
+        static void ep_18() //rock paper scissors game
+        {
+            Random random = new Random();
+            bool playAgain = true;
+            String player;
+            String computer;
+
+            while (playAgain)
+            {
+                player = "";
+                computer = "";
+                while (player != "rock" && player != "paper" && player != "scissors")
+                {
+                    Console.Write("Enter ROCK, PAPER, SCISSORS: ");
+                    player = Console.ReadLine();
+                    player = player.ToLower();
+                }
+
+                switch (random.Next(1, 4))
+                {
+                    case 1:
+                        {
+                            computer = "rock";
+                            break;
+                        }
+                    case 2:
+                        {
+                            computer = "paper";
+                            break;
+                        }
+                    case 3:
+                        {
+                            computer = "scissors";
+                            break;
+                        }
+                }
+                Console.WriteLine($"Player: {player}");
+                Console.WriteLine($"Computer: {computer}");
+
+                if ((player == "rock" && computer == "scissors") || (player == "paper" && computer == "rock") || (player == "scissors" && computer == "paper"))
+                    Console.WriteLine("You win!");
+                else if (player == computer) Console.WriteLine("Draw!");
+                else Console.WriteLine("You lost!");
+                Console.WriteLine("Do you want to play again?(Y/N)");
+                player = Console.ReadLine();
+                player = player.ToLower();
+                if (player == "n") playAgain = false;
+                Console.Clear();
+            }
+
+        }
+
+        static void ep_19() // calculator
+        {
+            double a = 0, b = 0, result = 0;
+            do
+            {
+                Console.WriteLine("--------------------------------");
+                Console.WriteLine("Calculator Program");
+                Console.WriteLine("--------------------------------");
+
+                Console.WriteLine("Enter number 1: ");
+                a = Convert.ToDouble(Console.ReadLine());
+
+                Console.WriteLine("Enter number 2: ");
+                b = Convert.ToDouble(Console.ReadLine());
+
+                Console.WriteLine("What do you want to do?");
+                Console.WriteLine("+ : Add");
+                Console.WriteLine("- : Substrtact");
+                Console.WriteLine("* : Multiply");
+                Console.WriteLine("/ : Divide");
+                Console.WriteLine("Your option: ");
+                string operation = Console.ReadLine();
+                switch (operation)
+                {
+                    case "+":
+                        {
+                            result = a + b;
+                            Console.WriteLine($"Result of {a} {operation} {b} = {result}");
+                            break;
+                        }
+                    case "-":
+                        {
+                            result = a - b;
+                            Console.WriteLine($"Result of {a} {operation} {b} = {result}");
+                            break;
+                        }
+                    case "*":
+                        {
+                            result = a * b;
+                            Console.WriteLine($"Result of {a} {operation} {b} = {result}");
+                            break;
+                        }
+                    case "/":
+                        {
+                            result = a / b;
+                            Console.WriteLine($"Result of {a} {operation} {b} = {result}");
+                            break;
+                        }
+                    default:
+                        {
+                            Console.WriteLine("You chose the wrong option");
+                            break;
+                        }
+                }
+                Console.WriteLine("Do you want to use calculator again?(Y/N)");
+                operation = Console.ReadLine();
+                operation = operation.ToLower();
+                if (operation == "n") break;
+                Console.Clear();
+            } while (true);
+
+
+
+        }
+
+        static void ep_20_and_21() // arrays and foreach loop
+        {
+            String[] cars = { "BMW", "Mustang", "Corvette" };
+
+            for(int i = 0; i < cars.Length; i++)
+            {
+                Console.WriteLine($"Car in {i + 1} position is {cars[i]}");
+            }
+
+            foreach(String car in cars)
+            {
+                Console.WriteLine($"Car is {car}");
+            }
+
+        }
+
+        static void ep_22() //methods
+        {
+
         }
 
         static void show_ep1_5(){
@@ -387,12 +566,68 @@
             //---------------------------------------------------------------------------------------------------------------
         }
 
+        static void show_ep16_21()
+        {
+            //---------------------------------------------------------------------------------------------------------------
+            ep_16(); //nested loops
+            Console.WriteLine("\n\n16th part is over. To continues press any button...");
+            Console.ReadKey();
+            Console.Clear();
+            //---------------------------------------------------------------------------------------------------------------
+            ep_17(); //number guessing game
+            Console.WriteLine("\n\n17th part is over. To continues press any button...");
+            Console.ReadKey();
+            Console.Clear();
+            //---------------------------------------------------------------------------------------------------------------
+            ep_18(); //rock paper scissors game
+            Console.WriteLine("\n\n18th part is over. To continues press any button...");
+            Console.ReadKey();
+            Console.Clear();
+            //---------------------------------------------------------------------------------------------------------------
+            ep_19(); //calculator
+            Console.WriteLine("\n\n19th part is over. To continues press any button...");
+            Console.ReadKey();
+            Console.Clear();
+            //---------------------------------------------------------------------------------------------------------------
+            ep_20_and_21(); //arrays and foreach loop
+            Console.WriteLine("\n\n20th and 21st part is over. To continues press any button...");
+            Console.ReadKey();
+            Console.Clear();
+            //---------------------------------------------------------------------------------------------------------------
+        }
+
+        static void show_ep22_25()
+        {
+            //---------------------------------------------------------------------------------------------------------------
+            ep_22(); //methods
+            Console.WriteLine("\n\n22nd part is over. To continues press any button...");
+            Console.ReadKey();
+            Console.Clear();
+            //---------------------------------------------------------------------------------------------------------------
+            //ep_23(); //nested loops
+            Console.WriteLine("\n\n23rd part is over. To continues press any button...");
+            Console.ReadKey();
+            Console.Clear();
+            //---------------------------------------------------------------------------------------------------------------
+            //ep_24(); //nested loops
+            Console.WriteLine("\n\n24th part is over. To continues press any button...");
+            Console.ReadKey();
+            Console.Clear();
+            //---------------------------------------------------------------------------------------------------------------
+            //ep_25(); //nested loops
+            Console.WriteLine("\n\n25th part is over. To continues press any button...");
+            Console.ReadKey();
+            Console.Clear();
+            //---------------------------------------------------------------------------------------------------------------
+        }
+
         static void Main(string[] args)
         {
             //show_ep1_5();
             //show_ep6_10();
             //show_ep11_15();
-            ep_15();
+            //show_ep16_21();
+            ep_22();
 
 
 
